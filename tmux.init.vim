@@ -17,6 +17,7 @@ nnoremap ;3      :buffer #<cr>
 nnoremap ;Q      :q!<cr>
 nnoremap ;ev     :edit   ~/df/tmux.init.vim<cr>
 nnoremap ;h      :noh<cr>
+nnoremap ;g      :silent !tmux popup -d $(pwd) -w 90\% -h 90\% -E lazygit<cr>
 nnoremap ;j      J
 nnoremap ;q      :q<cr>
 nnoremap ;sn     :set number<cr>
