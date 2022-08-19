@@ -34,7 +34,7 @@ SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these op
 #export EDITOR='[ -f ~/df/init.vim ] || curl -Os https://raw.githubusercontent.com/pl643/kodekloud/main/init.vim && nvim -u ~/init.vim'
 
 EDITOR="nvim -u ~/repo/dotfiles/tmux.init.vim"
-[ -f ~/bin ] && export $PATH:~/bin:$PATH
+[ -f ~/.local/bin ] && export PATH:~/.local/bin:$PATH
 
 # appends last issue command history to ~/.bash_history
 export PROMPT_COMMAND="history -a; history -n"
@@ -70,7 +70,6 @@ fzf_edit_function() {
 		fselected=$(find $1 -type f 2> /dev/null |fzf --height=20); [ -z $fselected ] || $EDITOR $fselected
 	fi
 }
-
 
 # Aliases
 alias a='alias'
