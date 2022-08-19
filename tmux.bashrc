@@ -33,7 +33,7 @@ bind -m vi-insert  '"\C-o": fzf_run_alias'
 SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these options prevent prompting
 #export EDITOR='[ -f ~/df/init.vim ] || curl -Os https://raw.githubusercontent.com/pl643/kodekloud/main/init.vim && nvim -u ~/init.vim'
 
-EDITOR="nvim -u ~/df/tmux.init.vim"
+EDITOR="nvim -u ~/repo/dotfiles/tmux.init.vim"
 [ -f ~/bin ] && export $PATH:~/bin:$PATH
 
 # appends last issue command history to ~/.bash_history
@@ -61,7 +61,7 @@ function cd {
 }
 
 # Edit a file using fzf
-fe() {
+fzf_edit_function() {
 	fzf="$(command -v fzf 2> /dev/null)" || fzf="$(dirname "$0")/fzf"
 	[[ -x "$fzf" ]] || fail 'fzf executable not found'
 	if [ -z $1 ]; then
@@ -77,6 +77,7 @@ alias a='alias'
 alias apt='sd apt'
 alias b='cd -'
 alias e="$EDITOR"
+alias fe="fzf_edit_function"
 alias g='grep'
 alias gc='git clone'
 alias gm='git commit -m'
@@ -102,7 +103,7 @@ alias tl='tmux list-keys'
 alias tr='l -tr'
 alias u='cd ..'
 alias vi='echo NOTE: use e alias'
-# add bashrc_tmux to ~/.bashrc -a
-bashrc_tmux="$HOME/df/bashrc.tmux"
+# add tmux_bashrc to ~/.bashrc -a
+tmux_bashrc="$HOME/repo/dotfiles/bashrc.tmux"
 #[ -f $bashrc_tmux ] && grep -q "bashrc.tmux" "$HOME/.bashrc" || echo "source ~/df/bashrc.tmux" >> $HOME/.bashrc
-echo "NOTE: last line $bashrc_tmux"
+echo "NOTE: last line $tmux_bashrc"
