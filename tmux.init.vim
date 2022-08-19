@@ -1,11 +1,12 @@
 filetype plugin on
 
+set autochdir       " auto chdir to active file
+set expandtab       " Expand TABs to spaces
 set number          " enable number
-set tabstop=4       " The width of a TAB is set to 4.
+set omnifunc=syntaxcomplete#Complete
 set shiftwidth=4    " Indents will have a width of 4
 set softtabstop=4   " Sets the number of columns for a TAB
-set expandtab       " Expand TABs to spaces
-set omnifunc=syntaxcomplete#Complete
+set tabstop=4       " The width of a TAB is set to 4.
 
 inoremap ;h      <Esc>:noh<cr>i<Right>
 inoremap ;j      <Esc>JA
