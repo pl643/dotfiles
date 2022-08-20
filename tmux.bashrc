@@ -34,7 +34,8 @@ bind -m vi-insert  '"\C-o": fzf_run_alias'
 SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these options prevent prompting
 #export EDITOR='[ -f ~/df/init.vim ] || curl -Os https://raw.githubusercontent.com/pl643/kodekloud/main/init.vim && nvim -u ~/init.vim'
 
-EDITOR="nvim -u ~/repo/dotfiles/tmux.init.vim"
+DOTFILES=~/repo/dotfiles
+EDITOR="nvim -u $DOTFILES/tmux.init.vim"
 [ -f ~/.local/bin ] && export PATH:~/.local/bin:$PATH
 
 # appends last issue command history to ~/.bash_history
@@ -105,18 +106,18 @@ alias rp="tmux popup -E -w 25 -h 12 'tmux-pane-resize.sh'"
 alias rsync='rsync -e "ssh $SSHOPT"'
 alias s='echo \> ls -F ; ls -F'    # short ls
 alias sa='ls -AF'
-alias sba='source ~/repo/dotfiles/tmux.bashrc'
+alias sba="source $DOTFILES/tmux.bashrc"
 alias scp="scp $SSHOPT"
 alias sd='sudo'
 alias ssh="ssh $SSHOPT"
 alias st='tmux source ./df/tmux.conf'
-alias t='tmux -2 -f ~/df/tmux.conf'
+alias t="tmux -2 -f $DOTFILES/tmux.conf"
 alias ta='t attach'
 alias tl='tmux list-keys'
 alias tr='l -tr'
 alias u='cd ..'
 alias vi='echo NOTE: use e alias'
 # add tmux_bashrc to ~/.bashrc -a
-tmux_bashrc="$HOME/repo/dotfiles/bashrc.tmux"
+tmux_bashrc="$DOTFILES/bashrc.tmux"
 #[ -f $bashrc_tmux ] && grep -q "bashrc.tmux" "$HOME/.bashrc" || echo "source ~/df/bashrc.tmux" >> $HOME/.bashrc
 echo "NOTE: last line $tmux_bashrc"
