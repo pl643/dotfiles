@@ -10,6 +10,7 @@ set -o vi
 # bind '";;":vi-movement-mode'
 bind '";e":vi-movement-mode'
 bind '";.":";"'
+bind '";c":"clear; check_git_repo\n"'
 bind '";f":"~/repo/fzf-repl/fzf-repl.bash\n"'
 bind '";a":"fzf_run_alias\n"'
 
@@ -90,7 +91,7 @@ alias apt='sd apt'
 alias b='cd -'
 alias e="$EDITOR"
 alias fe="fzf_edit_function"
-alias gC='clear; check_git_repo'
+alias c='clear; check_git_repo'
 alias gc='git clone'
 alias gm='git commit -m'
 alias h='cd ~'
