@@ -75,7 +75,7 @@ fzf_edit_function() {
 }
 
 check_git_repo() {
-    let total_repo=1
+    let total_repo=0
     let changed_count=0
     for gitrepo in $(find ~ -name .git); do
         builtin cd "$gitrepo/.."
