@@ -8,7 +8,6 @@ set shiftwidth=4    " Indents will have a width of 4
 set softtabstop=4   " Sets the number of columns for a TAB
 set tabstop=4       " The width of a TAB is set to 4.
 
-inoremap ;h      <Esc>:noh<cr>i<Right>
 inoremap ;j      <Esc>JA
 inoremap ;n      <C-n>
 inoremap ;;      <C-p>
@@ -17,6 +16,7 @@ inoremap ;w      <Esc>:w<CR>a
 nnoremap ;3      :buffer #<cr>
 nnoremap ;Q      :q!<cr>
 nnoremap ;ev     :edit ~/repo/dotfiles/tmux.init.vim<cr>
+inoremap ;h      <Esc>:noh<cr>i<Right>
 nnoremap ;h      :noh<cr>
 nnoremap ;g      :silent !tmux popup -d $(pwd) -w 90\% -h 90\% -E lazygit<cr>
 nnoremap ;j      J
@@ -24,6 +24,8 @@ nnoremap ;q      :q<cr>
 nnoremap ;sn     :set number<cr>
 nnoremap ;sv     :w<cr>:source ~/repo/dotfiles/tmux.init.vim<cr>
 nnoremap ;w      :w<cr>
+nnoremap ;r      :silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>
+inoremap ;r      <Esc>:silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>i
 
 nnoremap s       <nop>
 inoremap ;sf      <Esc>/
