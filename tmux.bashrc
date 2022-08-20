@@ -71,13 +71,26 @@ fzf_edit_function() {
 	fi
 }
 
+check_git_repo() {
+    let count=1
+    for gitrepo in $(find ~ -name .git); do
+        builtin cd "$gitrepo/.."
+        if ! git status | grep -q "clean" > /dev/null; then
+            printf "\nRepo $count: $(pwd)\n"
+            git status
+            alias "$count"="builtin cd $PWD; lazygit"
+            let count=(count + 1)
+        fi
+    done
+}
+
 # Aliases
 alias a='alias'
 alias apt='sd apt'
 alias b='cd -'
 alias e="$EDITOR"
 alias fe="fzf_edit_function"
-alias g='grep'
+alias gC='clear; check_git_repo'
 alias gc='git clone'
 alias gm='git commit -m'
 alias h='cd ~'
@@ -91,7 +104,7 @@ alias rp="tmux popup -E -w 25 -h 12 'tmux-pane-resize.sh'"
 alias rsync='rsync -e "ssh $SSHOPT"'
 alias s='echo \> ls -F ; ls -F'    # short ls
 alias sa='ls -AF'
-alias sba='source ~/df/tmux.bashrc'
+alias sba='source ~/repo/dotfiles/tmux.bashrc'
 alias scp="scp $SSHOPT"
 alias sd='sudo'
 alias ssh="ssh $SSHOPT"
