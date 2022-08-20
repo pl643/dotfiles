@@ -34,8 +34,8 @@ bind -m vi-insert  '"\C-o": fzf_run_alias'
 SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these options prevent prompting
 #export EDITOR='[ -f ~/df/init.vim ] || curl -Os https://raw.githubusercontent.com/pl643/kodekloud/main/init.vim && nvim -u ~/init.vim'
 
-DOTFILES=~/repo/dotfiles
-EDITOR="nvim -u $DOTFILES/tmux.init.vim"
+export DOTFILES=~/repo/dotfiles
+export EDITOR="nvim -u $DOTFILES/tmux.init.vim"
 [ -f ~/.local/bin ] && export PATH:~/.local/bin:$PATH
 
 # appends last issue command history to ~/.bash_history
