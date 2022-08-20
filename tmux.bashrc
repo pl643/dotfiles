@@ -74,16 +74,19 @@ fzf_edit_function() {
 }
 
 check_git_repo() {
-    let count=1
+    let total_repo=1
+    let changed_count=0
     for gitrepo in $(find ~ -name .git); do
         builtin cd "$gitrepo/.."
         if ! git status | grep -q "clean" > /dev/null; then
+            let changed_count=(changed_count + 1)
             printf "\nRepo $count: $(pwd)\n"
             git status
             alias "$count"="builtin cd $PWD; lazygit"
-            let count=(count + 1)
         fi
+        let total_repo=(total_repo + 1)
     done
+    printf "\nTotal repositories found: $total_repo\n"
 }
 
 # Aliases
@@ -93,6 +96,7 @@ alias b='cd -'
 alias e="$EDITOR"
 alias fe="fzf_edit_function"
 alias c='clear; check_git_repo'
+alias g='lazygit'
 alias gc='git clone'
 alias gm='git commit -m'
 alias h='cd ~'
