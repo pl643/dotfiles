@@ -36,6 +36,7 @@ SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these op
 
 export DOTFILES=~/repo/dotfiles
 export EDITOR="nvim -u $DOTFILES/tmux.init.vim"
+export VISUAL="nvim -u $DOTFILES/tmux.init.vim"
 [ -f ~/.local/bin ] && export PATH:~/.local/bin:$PATH
 
 # appends last issue command history to ~/.bash_history
