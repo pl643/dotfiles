@@ -81,9 +81,9 @@ check_git_repo() {
         builtin cd "$gitrepo/.."
         if ! git status | grep -q "clean" > /dev/null; then
             let changed_count=(changed_count + 1)
-            printf "\nRepo $count: $(pwd)\n"
+            printf "\nRepo $changed_count: $(pwd)\n"
             git status
-            alias "$count"="builtin cd $PWD; lazygit"
+            alias "$changed_count"="builtin cd $PWD; lazygit"
         fi
         let total_repo=(total_repo + 1)
     done
@@ -123,6 +123,6 @@ alias tr='l -tr'
 alias u='cd ..'
 alias vi='echo NOTE: use e alias'
 # add tmux_bashrc to ~/.bashrc -a
-tmux_bashrc="$DOTFILES/bashrc.tmux"
-#[ -f $bashrc_tmux ] && grep -q "bashrc.tmux" "$HOME/.bashrc" || echo "source ~/df/bashrc.tmux" >> $HOME/.bashrc
+tmux_bashrc="$DOTFILES/tmux.bashrc"
+which neofetch > /dev/null && neofetch
 echo "NOTE: last line $tmux_bashrc"
