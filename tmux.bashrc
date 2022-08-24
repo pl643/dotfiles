@@ -50,6 +50,11 @@ fail() {
   exit 2
 }
 
+# add to to ~/.bashrc
+add_to_bashrc() {
+    grep tmux.bashrc ~/.bashrc || echo source \~/repo/dotfiles/tmux.bashrc >> ~/.bashrc
+}
+
 # Select and execute alias with fzf
 fzf_run_alias() {
 	local sel a
