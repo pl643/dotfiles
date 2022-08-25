@@ -38,7 +38,8 @@ SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these op
 export DOTFILES=~/repo/dotfiles
 export EDITOR="nvim -u $DOTFILES/tmux.init.vim"
 export VISUAL="nvim -u $DOTFILES/tmux.init.vim"
-[ -f ~/.local/bin ] && export PATH:~/.local/bin:$PATH
+[ -d ~/.local/bin ]           && export PATH=~/.local/bin:$PATH
+[ -d ~/repo/static-binaries ] && export PATH=~/repo/static-binaries:$PATH
 
 # appends last issue command history to ~/.bash_history
 export PROMPT_COMMAND="history -a; history -n"
@@ -122,9 +123,10 @@ alias scp="scp $SSHOPT"
 alias sd='sudo'
 alias ssh="ssh $SSHOPT"
 alias st='tmux source ./df/tmux.conf'
-alias t="tmux -2 -f $DOTFILES/tmux.conf"
+alias t="~/repo/static-binaries/tmux -2 -f $DOTFILES/tmux.conf"
 alias ta='t attach'
-alias tl='tmux list-keys'
+alias tc='t source ~/repo/dotfiles/tmux.conf'
+alias tl='t list-keys'
 alias tr='l -tr'
 alias u='cd ..'
 alias wsl='wsl.exe'
