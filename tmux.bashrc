@@ -128,8 +128,9 @@ alias tl='tmux list-keys'
 alias tr='l -tr'
 alias u='cd ..'
 alias wsl='wsl.exe'
-alias wsl.list='wsl.exe --list'
-alias wsl.list.online='wsl.exe --list --online'
+alias wsl-distro='wsl.exe --distrobution'
+alias wsl-list='wsl.exe --list --ver'
+alias wsl-list-online='wsl.exe --list --online'
 alias vi='echo NOTE: use e alias'
 # add tmux_bashrc to ~/.bashrc -a
 tmux_bashrc="$DOTFILES/tmux.bashrc"
