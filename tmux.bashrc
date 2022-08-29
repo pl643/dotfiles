@@ -116,6 +116,7 @@ alias lg='tmux list-keys | grep'
 alias ls='ls --color=auto'
 alias rp="tmux popup -E -w 25 -h 12 'tmux-pane-resize.sh'"
 alias rsync='rsync -e "ssh $SSHOPT"'
+alias pwsh='powershell.exe'
 alias s='echo \> ls -F ; ls -F'    # short ls
 alias sa='ls -AF'
 alias sba="source $DOTFILES/tmux.bashrc"
