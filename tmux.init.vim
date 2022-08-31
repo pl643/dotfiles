@@ -7,6 +7,16 @@ set omnifunc=syntaxcomplete#Complete
 set shiftwidth=4    " Indents will have a width of 4
 set softtabstop=4   " Sets the number of columns for a TAB
 set tabstop=4       " The width of a TAB is set to 4.
+set grepprg=rg\ --vimgrep\ --smart-case
+set grepformat=%f:%l:%c:%m,%f:%l:%m
+
+" persistant undo: https://bluz71.github.io/2021/09/10/vim-tips-revisited.html
+let s:undodir = "/tmp/.undodir_" . $USER
+if !isdirectory(s:undodir)
+    call mkdir(s:undodir, "", 0700)
+endif
+let &undodir=s:undodir
+set undofile
 
 inoremap ;j      <Esc>JA
 inoremap ;n      <C-n>
