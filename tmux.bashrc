@@ -82,8 +82,7 @@ fzf_edit_function() {
 }
 
 check_git_repo() {
-set -x
-    let save_pwd="$PWD"
+    save_pwd="$PWD"
     let total_repo=0
     let changed_count=0
     for gitrepo in $(find ~ -name .git); do
@@ -98,7 +97,6 @@ set -x
     done
     printf "\nTotal repositories found: $total_repo\n"
     cd "$save_pwd"
-set +x
 }
 
 # Aliases
