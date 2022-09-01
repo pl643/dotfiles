@@ -35,7 +35,7 @@ bind -m vi-insert  '"\C-o": fzf_run_alias'
 SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these options prevent prompting
 #export EDITOR='[ -f ~/df/init.vim ] || curl -Os https://raw.githubusercontent.com/pl643/kodekloud/main/init.vim && nvim -u ~/init.vim'
 
-export DOTFILES=~/repo/dotfiles
+export DOTFILES='~/repo/dotfiles'
 export EDITOR="nvim -u $DOTFILES/tmux.init.vim"
 export VISUAL="nvim -u $DOTFILES/tmux.init.vim"
 [ -d ~/.local/bin ]           && export PATH=~/.local/bin:$PATH
@@ -103,6 +103,7 @@ check_git_repo() {
 alias a='alias'
 alias apt='sd apt'
 alias b='cd -'
+alias C='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"'
 alias cr="cd ~/repo"
 alias cn="cd ~/repo/notes"
 alias e="$EDITOR"
@@ -134,6 +135,8 @@ alias tc='t source ~/repo/dotfiles/tmux.conf'
 alias tl='t list-keys'
 alias tr='l -tr'
 alias u='cd ..'
+alias wa='alias | grep wsl'
+alias wpath='wslpath'
 alias wsl='wsl.exe'
 alias wsl-distro='wsl.exe --distrobution'
 alias wsl-list='wsl.exe --list --ver'
