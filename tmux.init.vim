@@ -37,7 +37,8 @@ nnoremap ;w      :w<cr>
 nnoremap ;r      :silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>
 inoremap ;r      <Esc>:silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>i
 
-nnoremap q       <nop>
+nnoremap Q       q
+nnoremap q       :q<cr>
 nnoremap s       <nop>
 inoremap ;sf      <Esc>/
 nnoremap sf      /
