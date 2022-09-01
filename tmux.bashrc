@@ -14,6 +14,7 @@ bind '";c":"clear; check_git_repo\n"'
 bind '";e":vi-movement-mode'
 bind '";f":"~/repo/fzf-repl/fzf-repl.bash\n"'
 bind '";g":"lazygit\n"'
+bind '";n":"C news.com\n"'
 
 #bind '";ba":"sba\n"'
 
