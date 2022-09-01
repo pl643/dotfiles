@@ -28,7 +28,7 @@ nnoremap ;Q      :q!<cr>
 nnoremap ;ev     :edit ~/repo/dotfiles/tmux.init.vim<cr>
 inoremap ;h      <Esc>:noh<cr>i<Right>
 nnoremap ;h      :noh<cr>
-nnoremap ;g      :silent !tmux popup -d $(pwd) -w 90\% -h 90\% -E lazygit<cr>
+nnoremap ;g      :silent !tmux popup -d $(pwd) -w 90\% -h 90\% -E lazygit -ucf ~/repo/dotfiles/tmux.lazygit.config.yaml<cr>
 nnoremap ;j      J
 nnoremap ;q      :q<cr>
 nnoremap ;sn     :set number<cr>
@@ -37,6 +37,7 @@ nnoremap ;w      :w<cr>
 nnoremap ;r      :silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>
 inoremap ;r      <Esc>:silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>i
 
+nnoremap q       <nop>
 nnoremap s       <nop>
 inoremap ;sf      <Esc>/
 nnoremap sf      /
