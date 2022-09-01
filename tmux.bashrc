@@ -8,14 +8,14 @@ shopt -s autocd  # allows changing folder without the cd command, just type fold
 set -o vi
 
 # bind '";;":vi-movement-mode'
-bind '";e":vi-movement-mode'
 bind '";.":";"'
-bind '";c":"clear; check_git_repo\n"'
-bind '";f":"~/repo/fzf-repl/fzf-repl.bash\n"'
 bind '";a":"fzf_run_alias\n"'
+bind '";c":"clear; check_git_repo\n"'
+bind '";e":vi-movement-mode'
+bind '";f":"~/repo/fzf-repl/fzf-repl.bash\n"'
+bind '";g":"lazygit\n"'
 
-bind '";p0":"ssh ply@pi0\n"'
-#bind '";sb":"sba\n"'
+#bind '";ba":"sba\n"'
 
 bind '";gm":"git commit -m ""\ei'
 bind '";gd":"git diff""\n'
@@ -82,6 +82,8 @@ fzf_edit_function() {
 }
 
 check_git_repo() {
+set -x
+    let save_pwd="$PWD"
     let total_repo=0
     let changed_count=0
     for gitrepo in $(find ~ -name .git); do
@@ -95,6 +97,8 @@ check_git_repo() {
         let total_repo=(total_repo + 1)
     done
     printf "\nTotal repositories found: $total_repo\n"
+    cd "$save_pwd"
+set +x
 }
 
 # Aliases
