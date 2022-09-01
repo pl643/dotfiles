@@ -103,6 +103,7 @@ check_git_repo() {
 alias a='alias'
 alias apt='sd apt'
 alias b='cd -'
+alias cr="cd ~/repo"
 alias e="$EDITOR"
 alias fe="fzf_edit_function"
 alias c='clear; check_git_repo'
@@ -117,7 +118,6 @@ alias la='echo \> ls -lAf ; ls -lAF'
 alias lg='tmux list-keys | grep'
 alias lazygit='lazygit -ucf ~/repo/dotfiles/tmux.lazygit.config.yaml'
 alias ls='ls --color=auto'
-alias rp="tmux popup -E -w 25 -h 12 'tmux-pane-resize.sh'"
 alias rsync='rsync -e "ssh $SSHOPT"'
 alias pwsh='powershell.exe'
 alias s='echo \> ls -F ; ls -F'    # short ls
