@@ -113,6 +113,7 @@ alias ht='history'
 alias l='echo \> ls -lF; ls -lF'   # long ls
 alias la='echo \> ls -lAf ; ls -lAF'
 alias lg='tmux list-keys | grep'
+alias lazygit='lazygit -ucf ~/repo/dotfiles/tmux.lazygit.config.yaml'
 alias ls='ls --color=auto'
 alias rp="tmux popup -E -w 25 -h 12 'tmux-pane-resize.sh'"
 alias rsync='rsync -e "ssh $SSHOPT"'
