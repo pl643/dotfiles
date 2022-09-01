@@ -104,6 +104,7 @@ alias a='alias'
 alias apt='sd apt'
 alias b='cd -'
 alias cr="cd ~/repo"
+alias cn="cd ~/repo/notes"
 alias e="$EDITOR"
 alias fe="fzf_edit_function"
 alias c='clear; check_git_repo'
