@@ -21,7 +21,7 @@ bind '";n":"C news.com\n"'
 bind '";gm":"git commit -m ""\ei'
 bind '";gd":"git diff""\n'
 bind '";gh":"git push""\n'
-bind '";gs":"git status""\n'
+bind '";gs":"git push""\n'
 bind '";l":"ls -lhF --color\n"'
 bind '";s":"ls -hF --color\n"'
 #bind ';2":vi-movement-mode'
@@ -98,7 +98,7 @@ check_git_repo() {
         let total_repo=(total_repo + 1)
     done
     printf "\nTotal repositories found: $total_repo\n"
-    cd "$save_pwd"
+    builtin cd "$save_pwd"
 }
 
 # Aliases
