@@ -39,7 +39,9 @@ SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these op
 
 export DOTFILES='~/repo/dotfiles'
 export EDITOR="nvim -u $DOTFILES/tmux.init.vim"
-export VISUAL="nvim -u $DOTFILES/tmux.init.vim"
+export VISUAL="$EDITOR"
+tmux_bashrc="$DOTFILES/tmux.bashrc"
+
 [ -d ~/.local/bin ]           && export PATH=~/.local/bin:$PATH
 [ -d ~/repo/static-binaries ] && export PATH=~/repo/static-binaries:$PATH
 
@@ -115,9 +117,8 @@ alias g='lazygit'
 alias gc='git clone'
 alias gm='git commit -m'
 alias h='cd ~'
-alias h='cd ~'
 alias ht='history'
-alias l='echo \> ls -lF; ls -lF'   # long ls
+alias l='echo \> ls -lhF; ls -lhF'   # long ls
 alias la='echo \> ls -lAf ; ls -lAF'
 alias lg='tmux list-keys | grep'
 alias lazygit='lazygit -ucf ~/repo/dotfiles/tmux.lazygit.config.yaml'
@@ -144,7 +145,6 @@ alias wsl-distro='wsl.exe --distrobution'
 alias wsl-list='wsl.exe --list --ver'
 alias wsl-list-online='wsl.exe --list --online'
 alias vi='echo NOTE: use e alias'
-# add tmux_bashrc to ~/.bashrc -a
-tmux_bashrc="$DOTFILES/tmux.bashrc"
+
 which neofetch > /dev/null && neofetch
 echo "NOTE: last line $tmux_bashrc"
