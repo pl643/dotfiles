@@ -19,23 +19,15 @@ bind '";h":"cd ~\n"'
 bind '";n":"C news.com\n"'
 bind '";r":"cd ~/repo\n"'
 bind '";u":"cd ..\n"'
-
-#bind '";ba":"sba\n"'
-
-bind '";gm":"git commit -m ""\ei'
-bind '";gd":"git diff""\n'
-bind '";gh":"git push""\n'
-bind '";gs":"git push""\n'
+bind '";w":"cd ~/wsl\n"'
 bind '";l":"ls -lhF --color\n"'
 bind '";s":"ls -hF --color\n"'
-#bind ';2":vi-movement-mode'
-#bind ';l:"tmux popup -E ~/df/tmux-mapleader ,\n"'
+
 bind -m vi-insert  -x '"\C-a": fzf_run_alias'
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 bind -m vi-command '"\C-a": a'
 bind -m vi-insert  '"\C-o": fzf_run_alias'
-#bind 'Control-o: "> output"\n'
 
 #SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no -o LogLevel=quiet"  # these options prevent prompting
 SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these options prevent prompting
@@ -105,6 +97,16 @@ check_git_repo() {
     done
     printf "\nTotal repositories found: $total_repo\n"
     builtin cd "$save_pwd"
+}
+
+# call if inside WSL environment
+wsl_setup() {
+    [ -d ~/wsl ] || mkdir ~/wsl
+    cd ~/wsl
+    if which wslvar > /dev/null; then
+        [ -d ~/wsl/onedrive ] || ln -sf $(wslpath $(wslvar onedrive)) onedrive
+        [ -d ~/wsl/home ] || ln -sf $(wslpath $(wslvar userprofile)) home
+    fi
 }
 
 # Aliases
