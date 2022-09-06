@@ -10,11 +10,15 @@ set -o vi
 # bind '";;":vi-movement-mode'
 bind '";.":";"'
 bind '";a":"fzf_run_alias\n"'
+bind '";b":"cd -\n"'
 bind '";c":"clear; check_git_repo\n"'
 bind '";e":vi-movement-mode'
 bind '";f":"~/repo/fzf-repl/fzf-repl.bash\n"'
 bind '";g":"lazygit\n"'
+bind '";h":"cd ~\n"'
 bind '";n":"C news.com\n"'
+bind '";r":"cd ~/repo\n"'
+bind '";u":"cd ..\n"'
 
 #bind '";ba":"sba\n"'
 
@@ -71,7 +75,7 @@ fzf_run_alias() {
 
 # https://unix.stackexchange.com/questions/20396/make-cd-automatically-ls
 function cd {
-    builtin cd "$@" && echo \> cd "$@" \; ls -lF ;  ls -lF
+    builtin cd "$@" && echo "$@" >> ~/.cd_history && echo \> cd "$@" \; ls -lF --color=auto; ls -lF --color=auto
 }
 
 # Edit a file using fzf
