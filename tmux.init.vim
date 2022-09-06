@@ -34,8 +34,8 @@ nnoremap ;q      :q<cr>
 nnoremap ;sn     :set number<cr>
 nnoremap ;sv     :w<cr>:source ~/repo/dotfiles/tmux.init.vim<cr>
 nnoremap ;w      :w<cr>
-nnoremap ;r      :silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>
-inoremap ;r      <Esc>:silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>i
+nnoremap ;r      :w<cr>:silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>
+inoremap ;r      <Esc>:w<cr>:silent !tmux select-pane -R \; send-keys Up Enter \; select-pane -L<cr>a
 
 nnoremap Q       q
 nnoremap q       :q<cr>
