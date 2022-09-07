@@ -87,7 +87,7 @@ check_git_repo() {
     let changed_count=0
     for gitrepo in $(find ~ -name .git); do
         builtin cd "$gitrepo/.."
-        if ! git status | grep -q "clean" > /dev/null; then
+        if ! git status | grep -q "up to date" > /dev/null; then
             let changed_count=(changed_count + 1)
             printf "\nRepo $changed_count: $(pwd)\n"
             git status
