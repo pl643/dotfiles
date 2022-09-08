@@ -22,6 +22,7 @@ bind '";u":"cd ..\n"'
 bind '";w":"cd ~/wsl\n"'
 bind '";l":"ls -lhF --color\n"'
 bind '";s":"ls -hF --color\n"'
+bind '";S":"sba\n"'
 
 bind -m vi-insert  -x '"\C-a": fzf_run_alias'
 bind -m vi-command 'Control-l: clear-screen'
@@ -42,7 +43,7 @@ tmux_bashrc="$DOTFILES/tmux.bashrc"
 [ -d ~/repo/static-binaries ] && export PATH=~/repo/static-binaries:$PATH
 
 # appends last issue command history to ~/.bash_history
-export PROMPT_COMMAND="history -a; history -n"
+export PROMPT_COMMAND="history -a; history -n; [ -f ~/.cd ] && source ~/.cd && rm ~/.cd"
 
 # Functions
 
@@ -87,6 +88,7 @@ check_git_repo() {
     let changed_count=0
     for gitrepo in $(find ~ -name .git); do
         builtin cd "$gitrepo/.."
+        git fetch
         if ! git status | grep -q "clean" > /dev/null; then
             let changed_count=(changed_count + 1)
             printf "\nRepo $changed_count: $(pwd)\n"
@@ -106,6 +108,15 @@ wsl_setup() {
     if which wslvar > /dev/null; then
         [ -d ~/wsl/onedrive ] || ln -sf $(wslpath $(wslvar onedrive)) onedrive
         [ -d ~/wsl/home ] || ln -sf $(wslpath $(wslvar userprofile)) home
+    fi
+}
+
+command_not_found_handle() { 
+    selected=$(fd . | fzf --select-1 --query "$1")
+    if [ -d "$selected" ]; then
+        echo cd "\"$selected\"" > ~/.cd
+    else
+        eval "bash $selected"
     fi
 }
 
