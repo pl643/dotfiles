@@ -129,12 +129,18 @@ command_not_found_handle() {
                 ;;
             pl)
                 evalstr='perl $selected'
-                echo "\> $evalstr"
+                eval echo "\> $evalstr"
                 echo
                 eval "$evalstr"
                 ;;
             ps1)
                 evalstr='powershell.exe -ExecutionPolicy bypass -File $selected'
+                eval echo "\> $evalstr"
+                echo
+                eval "$evalstr"
+                ;;
+            py)
+                evalstr='python3 $selected'
                 eval echo "\> $evalstr"
                 echo
                 eval "$evalstr"
