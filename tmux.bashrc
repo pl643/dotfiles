@@ -113,10 +113,36 @@ wsl_setup() {
 
 command_not_found_handle() { 
     selected=$(fd . | fzf --select-1 --query "$1")
+    [ -z "$selected" ] && return 0
     if [ -d "$selected" ]; then
         echo cd "\"$selected\"" > ~/.cd
     else
-        eval "bash $selected"
+        extension="${selected##*.}"
+        # echo command_not_found_handle: $selected
+        case $extension in
+            pl)
+                evalstr='perl $selected'
+                eval echo "command_not_found_handle: $evalstr"
+                echo
+                eval "$evalstr"
+                ;;
+            ps1)
+                evalstr='powershell.exe -File $selected'
+                eval echo "command_not_found_handle: $evalstr"
+                echo
+                eval "$evalstr"
+                ;;
+            sh)
+                evalstr='bash $selected'
+                eval echo "command_not_found_handle: $evalstr"
+                echo
+                eval "$evalstr"
+                ;;
+            *)
+                echo no handle for $selected
+                ;;
+        esac
+         
     fi
 }
 
