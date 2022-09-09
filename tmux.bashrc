@@ -146,10 +146,15 @@ command_not_found_handle() {
                 eval "$evalstr"
                 ;;
             *)
-                echo A-v to paste: $selected
+                if [ -z $TMUX ]; then
+                    echo echo -n \"$selected\" \> /tmp/.s
+                    echo -n $selected > /tmp/.s
+                else
+                    echo A-v to paste: $selected
+                    echo -n "$selected" | tmux load-buffer -
+                fi
                 ;;
         esac
-         
     fi
 }
 
