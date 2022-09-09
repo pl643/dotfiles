@@ -39,7 +39,7 @@ export EDITOR="nvim -u $DOTFILES/tmux.init.vim"
 export VISUAL="$EDITOR"
 tmux_bashrc="$DOTFILES/tmux.bashrc"
 
-[ -d ~/.local/bin ]           && export PATH=~/.local/bin:$PATH
+[ -d ~/.local/bin ] || mkdir -p ~/.local/bin && export PATH=~/.local/bin:$PATH
 [ -d ~/repo/static-binaries ] && export PATH=~/repo/static-binaries:$PATH
 
 # appends last issue command history to ~/.bash_history
@@ -134,7 +134,7 @@ command_not_found_handle() {
                 eval "$evalstr"
                 ;;
             ps1)
-                evalstr='powershell.exe -File $selected'
+                evalstr='powershell.exe -ExecutionPolicy bypass -File $selected'
                 eval echo "command_not_found_handle: $evalstr"
                 echo
                 eval "$evalstr"
