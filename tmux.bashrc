@@ -121,6 +121,12 @@ command_not_found_handle() {
         extension="${selected##*.}"
         # echo command_not_found_handle: $selected
         case $extension in
+            exe)
+                evalstr='$selected'
+                eval echo "command_not_found_handle: $evalstr"
+                echo
+                eval "$evalstr"
+                ;;
             pl)
                 evalstr='perl $selected'
                 eval echo "command_not_found_handle: $evalstr"
