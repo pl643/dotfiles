@@ -115,6 +115,7 @@ command_not_found_handle() {
     selected=$(fd . | fzf --select-1 --query "$1")
     [ -z "$selected" ] && return 0
     if [ -d "$selected" ]; then
+        # NOTE: add to enable cd: export PROMPT_COMMAND="[ -f ~/.cd ] && source ~/.cd && rm ~/.cd"
         echo cd "\"$selected\"" > ~/.cd
     else
         extension="${selected##*.}"
