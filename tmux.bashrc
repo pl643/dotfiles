@@ -89,7 +89,7 @@ check_git_repo() {
     for gitrepo in $(find ~ -name .git); do
         builtin cd "$gitrepo/.."
         git fetch
-        if ! git status | grep -q "up to date" > /dev/null; then
+        if ! git status | grep -qE "up to date|modified:" ; then
             let changed_count=(changed_count + 1)
             printf "\nRepo $changed_count: $(pwd)\n"
             git status
@@ -123,30 +123,30 @@ command_not_found_handle() {
         case $extension in
             exe)
                 evalstr='$selected'
-                eval echo "command_not_found_handle: $evalstr"
+                eval echo "> $evalstr"
                 echo
                 eval "$evalstr"
                 ;;
             pl)
                 evalstr='perl $selected'
-                eval echo "command_not_found_handle: $evalstr"
+                echo "\> $evalstr"
                 echo
                 eval "$evalstr"
                 ;;
             ps1)
                 evalstr='powershell.exe -ExecutionPolicy bypass -File $selected'
-                eval echo "command_not_found_handle: $evalstr"
+                eval echo "\> $evalstr"
                 echo
                 eval "$evalstr"
                 ;;
             sh)
                 evalstr='bash $selected'
-                eval echo "command_not_found_handle: $evalstr"
+                eval echo "\> $evalstr"
                 echo
                 eval "$evalstr"
                 ;;
             *)
-                echo no handle for $selected
+                echo A-v to paste: $selected
                 ;;
         esac
          
