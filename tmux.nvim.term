@@ -6,16 +6,17 @@ set mouse=
 set splitright
 
 autocmd TermOpen * startinsert
-if has('nvim')
-  tnoremap ,E <C-\><C-n>
-  tnoremap ,l ls -l<cr>
-  tnoremap <C-v><Esc> <Esc>
-  " tnoremap <Esc> <C-\><C-n>
-  tnoremap <M-[> <Esc>
-endif
 
+tnoremap ,E <C-\><C-n>
+tnoremap ,l ls -l<cr>
+tnoremap <C-v><Esc> <Esc>
+" tnoremap <Esc> <C-\><C-n>
+tnoremap <M-[> <Esc>
+
+nnoremap ,st <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>
+
+nnoremap ,et :e ~/repo/dotfiles/tmux.nvim.term<cr>
 nnoremap ,t :vsplit term://bash<cr>
 nnoremap ,w :w<cr>
-nnoremap ,st :source ~/repo/dotfiles/tmux.nvim.term<cr>
-
-term
+nnoremap ,3 :buffer #<cr>
+nnoremap q :q<cr>
