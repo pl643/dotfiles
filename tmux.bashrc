@@ -2,6 +2,7 @@
 
 # File is intended to be sourced from .bashrc
 # Aliases and bash options
+[ -f ~/repo/notes/aliases ] && source ~/repo/notes/aliases
 
 # Bash options/bindings
 shopt -s autocd  # allows changing folder without the cd command, just type folder name.
@@ -199,6 +200,7 @@ alias tc='t source ~/repo/dotfiles/tmux.conf'
 alias tl='t list-keys'
 alias tr='l -tr'
 alias u='cd ..'
+alias T="nvim -u $DOTFILES/tmux.nvim.term"
 alias wa='alias | grep wsl'
 alias wpath='wslpath'
 alias wl='wsl.exe --list --ver'
