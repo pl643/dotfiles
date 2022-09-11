@@ -8,7 +8,7 @@ set splitright
 autocmd TermOpen * startinsert
 
 tnoremap ,E <C-\><C-n>
-tnoremap ,l ls -l<cr>
+tnoremap ,l ls -lf<cr>
 tnoremap <C-v><Esc> <Esc>
 " tnoremap <Esc> <C-\><C-n>
 tnoremap <M-[> <Esc>
