@@ -113,7 +113,7 @@ wsl_setup() {
 }
 
 command_not_found_handle() { 
-    selected=$(fd . | fzf --select-1 --query "$1")
+    selected=$(ls -1 | fzf --select-1 --query "$1")
     [ -z "$selected" ] && return 0
     if [ -d "$selected" ]; then
         # NOTE: add to enable cd: export PROMPT_COMMAND="[ -f ~/.cd ] && source ~/.cd && rm ~/.cd"
@@ -172,6 +172,10 @@ alias b='cd -'
 alias C='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"'
 alias cr="cd ~/repo"
 alias cn="cd ~/repo/notes"
+alias d="docker"
+alias dr="docker run"
+alias di="docker image"
+alias dit="docker run -it"
 alias e="$EDITOR"
 alias fe="fzf_edit_function"
 alias c='clear; check_git_repo'
@@ -194,7 +198,7 @@ alias sba="source $DOTFILES/tmux.bashrc"
 alias scp="scp $SSHOPT"
 alias sd='sudo'
 alias ssh="ssh $SSHOPT"
-alias st='tmux source ./df/tmux.conf'
+alias ts='tmux source $DOTFILES/tmux.conf'
 alias t="~/repo/static-binaries/tmux -2 -f $DOTFILES/tmux.conf"
 alias ta='t attach || t'
 alias tc='t source ~/repo/dotfiles/tmux.conf'
