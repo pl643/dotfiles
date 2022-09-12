@@ -44,7 +44,7 @@ tmux_bashrc="$DOTFILES/tmux.bashrc"
 [ -d ~/repo/static-binaries ] && export PATH=~/repo/static-binaries:$PATH
 
 # appends last issue command history to ~/.bash_history
-export PROMPT_COMMAND="history -a; history -n; [ -f ~/.cd ] && source ~/.cd && rm ~/.cd"
+export PROMPT_COMMAND="history -a; history -n; [ -f ~/.source ] && source ~/.source && rm ~/.source"
 
 # Functions
 
@@ -116,9 +116,11 @@ command_not_found_handle() {
     selected=$(ls -1 | fzf --select-1 --query "$1")
     [ -z "$selected" ] && return 0
     if [ -d "$selected" ]; then
-        # NOTE: add to enable cd: export PROMPT_COMMAND="[ -f ~/.cd ] && source ~/.cd && rm ~/.cd"
-        echo cd "\"$selected\"" > ~/.cd
+        # NOTE: add to enable cd: export PROMPT_COMMAND="[ -f ~/.source ] && source ~/.source && rm ~/.source"
+        echo cd "\"$selected\"" > ~/.source
     else
+        echo s="\"$selected\"" > ~/.source
+        echo s="\"$selected\"" > ~/.source.DB
         extension="${selected##*.}"
         # echo command_not_found_handle: $selected
         case $extension in
@@ -141,7 +143,7 @@ command_not_found_handle() {
                 eval "$evalstr"
                 ;;
             py)
-                evalstr='python3 $selected'
+                evalstr='python $selected'
                 eval echo "\> $evalstr"
                 echo
                 eval "$evalstr"
@@ -154,11 +156,12 @@ command_not_found_handle() {
                 ;;
             *)
                 if [ -z $TMUX ]; then
-                    echo echo -n \"$selected\" \> /tmp/.s
-                    echo -n $selected > /tmp/.s
+                    echo s=\"$selected\"
+                    echo s=\"$selected\" > ~/.source
                 else
-                    echo A-v to paste: $selected
+                    echo s=\"$selected\" -  ALT-v to paste
                     echo -n "$selected" | tmux load-buffer -
+                    echo s=\"$selected\" > ~/.source
                 fi
                 ;;
         esac
@@ -190,10 +193,11 @@ alias lg='tmux list-keys | grep'
 alias lazygit='lazygit -ucf ~/repo/dotfiles/tmux.lazygit.config.yaml'
 alias ls='ls --color=auto'
 alias rsync='rsync -e "ssh $SSHOPT"'
+alias python='python3'
 alias pwsh='powershell.exe'
 alias s='echo \> ls -F ; ls -F'    # short ls
 alias sa='ls -AF'
-alias se='e $(cat /tmp/.s)'
+alias se='eval e \"$s\"'
 alias sba="source $DOTFILES/tmux.bashrc"
 alias scp="scp $SSHOPT"
 alias sd='sudo'
