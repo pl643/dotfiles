@@ -1,4 +1,4 @@
-" nvim wrapper to allow leader key
+" nvim wrapper to allow leader key in terminal/requires nvim .8+ to enable cmdheight=0
 
 set cmdheight=0
 set laststatus=0
@@ -7,12 +7,16 @@ set splitright
 
 autocmd TermOpen * startinsert
 
-tnoremap ,E <C-\><C-n>
-tnoremap ,l ls -lf<cr>
+tnoremap ,d docker<space>
+tnoremap ,e <C-\><C-n>
+tnoremap ,l ls -lF --color<cr>
+tnoremap ,s ls -F --color<cr>
+tnoremap ,v set -o vi<cr>
 tnoremap <C-v><Esc> <Esc>
 " tnoremap <Esc> <C-\><C-n>
 tnoremap <M-[> <Esc>
 
+tnoremap silent ,ST <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>i
 nnoremap ,st <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>
 
 nnoremap ,et :e ~/repo/dotfiles/tmux.nvim.term<cr>
