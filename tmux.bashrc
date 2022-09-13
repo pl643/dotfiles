@@ -9,7 +9,7 @@ shopt -s autocd  # allows changing folder without the cd command, just type fold
 set -o vi
 
 # bind '";;":vi-movement-mode'
-bind '";.":";"'
+bind '"; ":"\n"'
 bind '";a":"fzf_run_alias\n"'
 bind '";b":"cd -\n"'
 bind '";c":"clear; check_git_repo\n"'
@@ -209,7 +209,7 @@ alias tc='t source ~/repo/dotfiles/tmux.conf'
 alias tl='t list-keys'
 alias tr='l -tr'
 alias u='cd ..'
-alias T="nvim -u $DOTFILES/tmux.nvim.term -c term"
+alias T="nvim -u $DOTFILES/tmux.nvim.term -c \"term tmux attach\""
 alias wa='alias | grep wsl'
 alias wpath='wslpath'
 alias wl='wsl.exe --list --ver'
