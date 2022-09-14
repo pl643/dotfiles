@@ -6,9 +6,13 @@ set mouse=
 set splitright
 
 autocmd TermOpen * startinsert
+autocmd BufWinEnter,WinEnter term://* startinsert
 
+tnoremap ,, ,
 tnoremap ,d docker<space>
-tnoremap ,e <C-\><C-n>
+tnoremap ,E <C-\><C-n>
+tnoremap <silent> ,S <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>
+tnoremap <silent> ,3 <C-\><C-n>:buffer #<cr>
 tnoremap ,l ls -lF --color<cr>
 tnoremap ,s ls -F --color<cr>
 tnoremap ,v set -o vi<cr>
@@ -16,8 +20,8 @@ tnoremap <C-v><Esc> <Esc>
 " tnoremap <Esc> <C-\><C-n>
 tnoremap <M-[> <Esc>
 
-tnoremap silent ,ST <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>i
-nnoremap ,st <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>
+tnoremap <silent> ,S <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>i
+nnoremap <silent> ,S :source ~/repo/dotfiles/tmux.nvim.term<cr>
 
 nnoremap ,et :e ~/repo/dotfiles/tmux.nvim.term<cr>
 nnoremap ,t :vsplit term://bash<cr>

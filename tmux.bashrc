@@ -209,7 +209,7 @@ alias tc='t source ~/repo/dotfiles/tmux.conf'
 alias tl='t list-keys'
 alias tr='l -tr'
 alias u='cd ..'
-alias T="nvim -u $DOTFILES/tmux.nvim.term -c \"term tmux attach\""
+alias T="nvim -u $DOTFILES/tmux.nvim.term -c \"term tmux -2 -f $DOTFILES/tmux.conf attach || tmux -2 -f $DOTFILES/tmux.conf\""
 alias wa='alias | grep wsl'
 alias wpath='wslpath'
 alias wl='wsl.exe --list --ver'
@@ -220,4 +220,4 @@ alias wsl-list-online='wsl.exe --list --online'
 alias vi='echo NOTE: use e alias'
 alias vlc='"/mnt/c/Program Files/VideoLAN/VLC/vlc.exe"'
 which neofetch > /dev/null && neofetch
-echo "NOTE: last line $tmux_bashrc"
+echo "NOTE: last line $tmux_bashrc SHLVL: $SHLVL"
