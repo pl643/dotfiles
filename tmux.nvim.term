@@ -1,18 +1,24 @@
-" nvim wrapper to allow leader key in terminal/requires nvim .8+ to enable cmdheight=0
+" neovim terminal wrapper for leader key usage
 
-set cmdheight=0
-set laststatus=0
 set mouse=
 set splitright
 
-autocmd TermOpen * startinsert
+autocmd TermOpen * startinser
 autocmd BufWinEnter,WinEnter term://* startinsert
+"autocmd BufWinEnter,WinEnter term://* :silent !tmux refresh
+autocmd BufWinEnter,WinEnter term://* :silent set cmdheight=0
+autocmd BufWinEnter,WinEnter term://* :silent set laststatus=0
+autocmd BufWinLeave,WinLeave term://* :silent set cmdheight=1
+autocmd BufWinLeave,WinLeave term://* :silent set laststatus=1
 
 tnoremap ,, ,
 tnoremap ,d docker<space>
 tnoremap ,E <C-\><C-n>
 tnoremap <silent> ,S <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>
-tnoremap <silent> ,3 <C-\><C-n>:buffer #<cr>
+tnoremap <silent> ,# <C-\><C-n>:silent buffer #<cr>
+tnoremap <silent> ,1 <C-\><C-n>:tmux select-window 1<cr>
+tnoremap <silent> ,2 <C-\><C-n>:tmux select-window 2<cr>
+tnoremap <silent> ,R <C-\><C-n>:silent :!tmux refresh<cr>a
 tnoremap ,l ls -lF --color<cr>
 tnoremap ,s ls -F --color<cr>
 tnoremap ,v set -o vi<cr>
@@ -20,11 +26,11 @@ tnoremap <C-v><Esc> <Esc>
 " tnoremap <Esc> <C-\><C-n>
 tnoremap <M-[> <Esc>
 
-tnoremap <silent> ,S <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>i
-nnoremap <silent> ,S :source ~/repo/dotfiles/tmux.nvim.term<cr>
+tnoremap <silent> ,S <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>:silent !tmux refresh<cr>i
+nnoremap <silent> ,S :source ~/repo/dotfiles/tmux.nvim.term<cr>i
 
 nnoremap ,et :e ~/repo/dotfiles/tmux.nvim.term<cr>
 nnoremap ,t :vsplit term://bash<cr>
 nnoremap ,w :w<cr>
-nnoremap ,3 :buffer #<cr>
+nnoremap ,# :buffer #<cr>
 nnoremap q :q<cr>
