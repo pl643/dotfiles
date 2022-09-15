@@ -2,6 +2,8 @@
 
 set mouse=
 set splitright
+set cmdheight=0
+set laststatus=0
 
 autocmd TermOpen * startinser
 autocmd BufWinEnter,WinEnter term://* startinsert
@@ -14,6 +16,7 @@ autocmd BufWinLeave,WinLeave term://* :silent set laststatus=1
 tnoremap ,, ,
 tnoremap ,d docker<space>
 tnoremap ,E <C-\><C-n>
+tnoremap ,Q <C-\><C-n>:q!<cr>
 tnoremap <silent> ,S <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>
 tnoremap <silent> ,# <C-\><C-n>:silent buffer #<cr>
 tnoremap <silent> ,1 <C-\><C-n>:tmux select-window 1<cr>
