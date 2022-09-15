@@ -2,7 +2,7 @@
 
 # File is intended to be sourced from .bashrc
 # Aliases and bash options
-[ -f ~/repo/notes/aliases ] && source ~/repo/notes/aliases
+[ -f ~/repo/notes/profile ] && source ~/repo/notes/profile
 
 # Bash options/bindings
 shopt -s autocd  # allows changing folder without the cd command, just type folder name.
