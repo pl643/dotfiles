@@ -14,7 +14,7 @@ autocmd BufWinLeave,WinLeave term://* :silent set cmdheight=1
 autocmd BufWinLeave,WinLeave term://* :silent set laststatus=1
 
 tnoremap ,, ,
-tnoremap ,d docker<space>
+tnoremap ,d sudo docker<space>
 tnoremap ,E <C-\><C-n>
 tnoremap ,Q <C-\><C-n>:q!<cr>
 tnoremap <silent> ,S <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>
