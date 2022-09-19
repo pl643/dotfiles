@@ -219,6 +219,7 @@ alias wsl-list='wsl.exe --list --ver'
 alias wsl-list-online='wsl.exe --list --online'
 alias vi='echo NOTE: use e alias'
 alias vlc='"/mnt/c/Program Files/VideoLAN/VLC/vlc.exe"'
+
 which neofetch > /dev/null && neofetch
-cd ~
+builtin cd ~
 echo "NOTE: last line $tmux_bashrc SHLVL: $SHLVL"
