@@ -88,6 +88,7 @@ check_git_repo() {
     let total_repo=0
     let changed_count=0
     for gitrepo in $(find ~ -name .git); do
+        echo $gitrepo
         builtin cd "$gitrepo/.."
         git fetch
         if ! git status | grep -qE "up to date|modified:" ; then
@@ -120,7 +121,7 @@ command_not_found_handle() {
         echo cd "\"$selected\"" > ~/.source
     else
         echo s="\"$selected\"" > ~/.source
-        echo s="\"$selected\"" > ~/.source.DB
+        echo -n "$selected" | tmux load-buffer -
         extension="${selected##*.}"
         # echo command_not_found_handle: $selected
         case $extension in
