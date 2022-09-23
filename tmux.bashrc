@@ -113,6 +113,11 @@ wsl_setup() {
     fi
 }
 
+settitle () {
+  #export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  echo -ne '\033]0;'"$1"'\a'
+}
+
 command_not_found_handle() { 
     selected=$(ls -1 | fzf --select-1 --query "$1")
     [ -z "$selected" ] && return 0
