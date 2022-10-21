@@ -18,7 +18,7 @@ if !isdirectory(s:undodir)
 endif
 let &undodir=s:undodir
 " wsl
-set clipboard+=unnamed
+"set clipboard+=unnamed
 
 let g:clipboard = {
     \'name': 'wsl-clip',
