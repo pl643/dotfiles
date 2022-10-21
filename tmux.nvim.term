@@ -17,17 +17,18 @@ tnoremap ,, ,
 tnoremap ,d sudo docker<space>
 tnoremap ,E <C-\><C-n>
 tnoremap ,Q <C-\><C-n>:q!<cr>
+tnoremap ,l ls -lhF --color<cr>
+tnoremap ,s ls -F --color<cr>
+tnoremap ,v set -o vi<cr>
+tnoremap ,u cd ..<cr>
+tnoremap ,b cd -<cr>
+tnoremap <C-v><Esc> <Esc>
+tnoremap <M-[> <Esc>
 tnoremap <silent> ,S <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>
 tnoremap <silent> ,# <C-\><C-n>:silent buffer #<cr>
 tnoremap <silent> ,1 <C-\><C-n>:silent !tmux select-window -t 1<cr>i
 tnoremap <silent> ,2 <C-\><C-n>:silent !tmux select-window -t 2<cr>i
 tnoremap <silent> ,R <C-\><C-n>:silent :!tmux refresh<cr>a
-tnoremap ,l ls -lF --color<cr>
-tnoremap ,s ls -F --color<cr>
-tnoremap ,v set -o vi<cr>
-tnoremap <C-v><Esc> <Esc>
-" tnoremap <Esc> <C-\><C-n>
-tnoremap <M-[> <Esc>
 
 tnoremap <silent> ,S <C-\><C-n>:source ~/repo/dotfiles/tmux.nvim.term<cr>:silent !tmux refresh<cr>i
 nnoremap <silent> ,S :source ~/repo/dotfiles/tmux.nvim.term<cr>i
