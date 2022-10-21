@@ -9,6 +9,7 @@ set softtabstop=4   " Sets the number of columns for a TAB
 set tabstop=4       " The width of a TAB is set to 4.
 set grepprg=rg\ --vimgrep\ --smart-case
 set grepformat=%f:%l:%c:%m,%f:%l:%m
+set undofile
 
 " persistant undo: https://bluz71.github.io/2021/09/10/vim-tips-revisited.html
 let s:undodir = "/tmp/.undodir_" . $USER
@@ -16,7 +17,21 @@ if !isdirectory(s:undodir)
     call mkdir(s:undodir, "", 0700)
 endif
 let &undodir=s:undodir
-set undofile
+" wsl
+set clipboard+=unnamed
+
+let g:clipboard = {
+    \'name': 'wsl-clip',
+    \'copy': {
+    \'+': 'clip.exe',
+    \'*': 'clip.exe',
+    \},
+    \'paste': {
+    \'+': "powershell.exe Get-Clipboard",
+    \'*': "powershell.exe Get-Clipboard",
+    \},
+    \'cache_enabled': 0,
+\}
 
 inoremap ;j      <Esc>JA
 inoremap ;n      <C-n>
@@ -79,3 +94,4 @@ if has('wsl')
 endif
 
 " test area
+" 

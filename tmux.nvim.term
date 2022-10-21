@@ -15,6 +15,7 @@ autocmd BufWinLeave,WinLeave term://* :silent set laststatus=1
 
 tnoremap ,, ,
 tnoremap ,d sudo docker<space>
+tnoremap ,W :w !sudo tee %<cr>
 tnoremap ,E <C-\><C-n>
 tnoremap ,Q <C-\><C-n>:q!<cr>
 tnoremap ,l ls -lhF --color<cr>
