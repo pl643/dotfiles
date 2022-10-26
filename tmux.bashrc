@@ -118,6 +118,12 @@ settitle () {
   echo -ne '\033]0;'"$1"'\a'
 }
 
+exals() {
+    bind '";l":"exa -l\n"'
+    bind '";s":"exa\n"'
+    alias l='echo \> exa -l; exa -l'   # long ls
+}
+
 command_not_found_handle() { 
     selected=$(ls -1 | fzf --select-1 --query "$1")
     [ -z "$selected" ] && return 0
@@ -182,6 +188,7 @@ alias C='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"'
 alias cr="cd ~/repo"
 alias cn="cd ~/repo/notes"
 alias d="docker"
+alias dn="echo $WSL_DISTRO_NAME"
 alias dr="docker run"
 alias di="docker image"
 alias dit="docker run -it"
@@ -193,6 +200,7 @@ alias gc='git clone'
 alias gm='git commit -m'
 alias h='cd ~'
 alias ht='history'
+alias kali='orig=$(tmux display-message -p "#W"); tmux rename-window kali; wsl.exe -d kali-linux ; tmux rename-windo "$orig"'
 alias l='echo \> ls -lhF; ls -lhF'   # long ls
 alias la='echo \> ls -lAf ; ls -lAF'
 alias lg='tmux list-keys | grep'
@@ -220,12 +228,13 @@ alias wa='alias | grep wsl'
 alias wpath='wslpath'
 alias wl='wsl.exe --list --ver'
 alias wsl='wsl.exe'
+alias WS='wsl.exe --shutdown'
 alias wsl-distro='wsl.exe --distrobution'
 alias wsl-list='wsl.exe --list --ver'
 alias wsl-list-online='wsl.exe --list --online'
 alias vi='echo NOTE: use e alias'
 alias vlc='"/mnt/c/Program Files/VideoLAN/VLC/vlc.exe"'
+alias x='echo \> exa -l ; exa -l'
 
-which neofetch > /dev/null && neofetch
 builtin cd ~
 echo "NOTE: last line $tmux_bashrc SHLVL: $SHLVL"
