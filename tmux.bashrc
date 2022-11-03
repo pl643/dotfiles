@@ -171,7 +171,7 @@ command_not_found_handle() {
                     echo s=\"$selected\"
                     echo s=\"$selected\" > ~/.source
                 else
-                    echo s=\"$selected\" -  ALT-v to paste
+                    echo s=\"$selected\" \|  ALT-v to paste \| se - edit selected
                     echo -n "$selected" | tmux load-buffer -
                     echo s=\"$selected\" > ~/.source
                 fi
