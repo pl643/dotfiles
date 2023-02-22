@@ -14,11 +14,14 @@ autocmd BufWinLeave,WinLeave term://* :silent set cmdheight=1
 autocmd BufWinLeave,WinLeave term://* :silent set laststatus=1
 
 tnoremap ,, ,
+tnoremap ,c <C-c>
 tnoremap ,d sudo docker<space>
+tnoremap ,g sgpt --no-spinner --no-animation "" \| tee /tmp/sgpt.tee<Esc>F"i
 tnoremap ,W :w !sudo tee %<cr>
 tnoremap ,E <C-\><C-n>
 tnoremap ,Q <C-\><C-n>:q!<cr>
 tnoremap ,l ls -lhF --color<cr>
+tnoremap ,m :nnoremap <space> <c-f><cr>
 tnoremap ,s ls -F --color<cr>
 tnoremap ,S <Up><Esc>0isudo <cr>
 tnoremap ,v set -o vi<cr>
