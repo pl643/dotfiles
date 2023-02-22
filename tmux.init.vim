@@ -94,4 +94,5 @@ if has('wsl')
 endif
 
 " test area
-" 
+
+color lunaperche
