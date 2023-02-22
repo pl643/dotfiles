@@ -36,7 +36,7 @@ SSHOPT="-o userknownhostsfile=/dev/null -o StrictHostKeyChecking=no"  # these op
 #export EDITOR='[ -f ~/df/init.vim ] || curl -Os https://raw.githubusercontent.com/pl643/kodekloud/main/init.vim && nvim -u ~/init.vim'
 
 export DOTFILES='~/repo/dotfiles'
-export EDITOR="nvim -u $DOTFILES/tmux.init.vim"
+export EDITOR="~/.local/bin/nvim -u $DOTFILES/tmux.init.vim"
 export VISUAL="$EDITOR"
 tmux_bashrc="$DOTFILES/tmux.bashrc"
 
@@ -108,8 +108,8 @@ wsl_setup() {
     [ -d ~/wsl ] || mkdir ~/wsl
     cd ~/wsl
     if which wslvar > /dev/null; then
-        [ -d ~/wsl/onedrive ] || ln -sf $(wslpath $(wslvar onedrive)) onedrive
-        [ -d ~/wsl/home ] || ln -sf $(wslpath $(wslvar userprofile)) home
+        [ -d ~/wsl/onedrive ] || ln -sf $(wslpath "$(wslvar onedrive)") onedrive
+        [ -d ~/wsl/home ] || ln -sf $(wslpath "$(wslvar userprofile)") home
     fi
 }
 
@@ -182,10 +182,29 @@ command_not_found_handle() {
 
 # Aliases
 alias a='alias'
-alias apt='sd apt'
+alias apt='sudo apt -y'
 alias b='cd -'
-alias C='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"'
+alias C='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" --ignore-certificate-errors'
+alias ca='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app='
+alias pm='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app=https://10.1.1.90:8006/'
+alias p1='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app="https://lab-pve01:8006/#v1:0:=qemu%2F200:4:::::::"'
+alias pt='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" https://pm90:9443/'
+alias sm='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app=https://10.1.1.93:8006/'
+alias mx="$(wslpath $(wslvar onedrive)/tools/MobaXterm_Personal_23.0.exe) &"
+#alias dl="cd \"$(wslpath $(wslvar userprofile)/Downloads\""
+alias dl="cd \"$(wslpath $(wslvar userprofile)/Downloads)\""
+alias c8='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app="https://10.1.1.93:8006/?console=kvm&novnc=1&vmid=105&vmname=centos8&node=super-x10&resize=off&cmd="'
+alias t10='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app="https://10.1.1.93:8006/?console=kvm&novnc=1&vmid=107&vmname=tiny10&node=super-x10&resize=off&cmd="'
+alias w10l='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app="https://lab-pve01:8006/?console=kvm&novnc=1&vmid=200&vmname=win10-legacy-kvm&node=lab-pve01&resize=off&cmd="'
+alias x10='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app="https://10.1.1.93:8006"'
+alias x10w='C -app="https://rvl-pv-con110:8080"'
+alias w10='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app="https://lab-pve01:8006/?console=kvm&novnc=1&vmid=200&vmname=win10-legacy-kvm&node=lab-pve01&resize=off&cmd="'
+alias a8='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" -app="https://10.1.1.93:8006/?console=kvm&novnc=1&vmid=106&vmname=&node=super-x10&resize=off&cmd="'
+alias aj='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" "https://jira.microchip.com/projects/RL/issues/RL-247?filter=allissues"'
+alias oj='"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" "https://jira.microchip.com/projects/RL/?filter=allopenissues"'
 alias cr="cd ~/repo"
+alias cmd="cmd.exe /k cd %userprofile%\\onedrive"
+alias ipconfig="cmd.exe /c ipconfig /all | less"
 alias cn="cd ~/repo/notes"
 alias d="docker"
 alias dn="echo $WSL_DISTRO_NAME"
@@ -212,16 +231,24 @@ alias pwsh='powershell.exe'
 alias s='echo \> ls -F ; ls -F'    # short ls
 alias sa='ls -AF'
 alias se='eval e \"$s\"'
+alias es="$EDITOR $DOTFILES/tmux.bashrc; source $DOTFILES/tmux.bashrc"
+alias eh="sudo $EDITOR /etc/hosts"
+alias eba="$EDITOR $DOTFILES/tmux.bashrc"
 alias sba="source $DOTFILES/tmux.bashrc"
 alias scp="scp $SSHOPT"
 alias sd='sudo'
+alias sp='sshpass -p'
+alias we='sshpass -p Wevalid8 $ssh'
 alias ssh="ssh $SSHOPT"
 ssh="ssh $SSHOPT"
-alias ts='tmux source $DOTFILES/tmux.conf'
-alias t="~/repo/static-binaries/tmux -2 -f $DOTFILES/tmux.conf"
-alias ta='t attach || t'
-alias tc='t source ~/repo/dotfiles/tmux.conf'
-alias tl='t list-keys'
+alias ts='sudo tailscale'
+alias tss='sudo tailscale status'
+alias tsw="/mnt/c/Program\ Files/Tailscale/tailscale.exe"
+#alias t='tailscale'
+#alias t="~/repo/static-binaries/tmux -2 -f $DOTFILES/tmux.conf"
+#alias ta='t attach || t'
+#alias tc='t source ~/repo/dotfiles/tmux.conf'
+#alias tl='t list-keys'
 alias tr='l -tr'
 alias u='cd ..'
 alias T="nvim -u $DOTFILES/tmux.nvim.term -c \"term tmux -2 -f $DOTFILES/tmux.conf attach || tmux -2 -f $DOTFILES/tmux.conf\""
