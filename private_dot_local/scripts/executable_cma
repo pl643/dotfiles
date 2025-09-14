@@ -1,3 +1,9 @@
 #!/bin/bash
 
-chezmoi add $@
+set -x
+
+chezmoi add ~/.config/zshrc
+chezmoi add ~/.local/scripts
+
+cd ~/.local/share/chezmoi
+git diff

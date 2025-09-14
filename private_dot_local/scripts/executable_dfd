@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo \> cd ~/.local/share/chezmoi \; git diff
+cd ~/.local/share/chezmoi
+git diff

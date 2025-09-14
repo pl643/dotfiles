@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/.local/share/chezmoi
+git add --all

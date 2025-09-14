@@ -56,8 +56,10 @@ set -o vi
 unalias ls 2> /dev/null
 unalias l 2> /dev/null
 alias cm=chezmoi
+alias ca='echo \> chezmoi apply; chezmoi apply'
 alias cmc='chezmoi cd'
 alias ls=lsd
+alias lt='ls -ltr'
 alias b='cd -'
 alias g='git'
 alias h='cd ~'
