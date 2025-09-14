@@ -1,10 +1,10 @@
 #!/bin/bash
 
 packages=(
+  fd-find
   fzf
   bat
   lsd
-  nushell
   pass
   sshfs
   tmux
