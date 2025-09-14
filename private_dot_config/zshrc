@@ -1,0 +1,66 @@
+#### Variables ###############################################################
+
+export EDITOR=v
+export VISUAL=$EDITOR
+export GITHUB_USERNAME=pl643
+
+if [ -d ~/.local/kitty.app ]; then 
+  if echo $PATH | grep -q -v $HOME/.local/kitty.app; then
+    export PATH=~/.local/kitty.app/bin:$PATH
+  fi
+fi
+
+if echo $PATH | grep -q -v $HOME/.local/bin; then
+  export PATH=~/.local/bin:$PATH
+fi
+if echo $PATH | grep -q -v $HOME/.local/scripts; then
+  export PATH=~/.local/scripts:$PATH
+fi
+
+# Functions ################################################################
+
+cd() {
+  __zoxide_z "$1"
+  if [[ $? -eq 0 ]]; then
+    echo \> ls
+    ls
+  fi
+} 
+
+c() {
+  cd $@
+} 
+
+sf() {
+  source "$(find ~|fzf)"
+}
+
+vz() {
+  echo \> v \~/.config/zshrc
+  v ~/.config/zshrc
+  echo \> source \~/.config/zshrc
+  source ~/.config/zshrc
+}
+
+# Evaluations ############################################################
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
+# Settings ###############################################################
+
+set -o vi
+
+#
+# Aliases ###############################################################
+unalias ls 2> /dev/null
+unalias l 2> /dev/null
+alias cm=chezmoi
+alias cmc='chezmoi cd'
+alias ls=lsd
+alias b='cd -'
+alias g='git'
+alias h='cd ~'
+alias ws='cd ~/workspace'
+alias u='cd ..'
+
