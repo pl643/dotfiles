@@ -1,0 +1,8 @@
+#!/bin/bash
+
+location=/home/ply/.local/share/chezmoi
+echo \> cd $location
+cd $location
+
+echo \> git push https://pl643:\$\(pass github-token\)@github.com/pl643/dotfiles.git --all
+git push https://pl643:$(pass github-token)@github.com/pl643/dotfiles.git --all

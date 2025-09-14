@@ -1,0 +1,5 @@
+f=$(find ~|fzf)
+if [ -n "$f" ]; then
+  echo $f | wl-copy
+  $EDITOR $f
+fi

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -p /dev/stdin ]; then
+  bat
+  exit
+fi
+
+if [ -f "$1" ]; then
+  bat "$1"
+else
+  lsd -l
+fi

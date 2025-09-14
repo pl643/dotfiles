@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# ln this file to /usr/local/bin
+
+~/.local/kitty.app/bin/kitty $@

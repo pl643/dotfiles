@@ -1,0 +1,27 @@
+#!/bin/bash
+
+packages=(
+  fzf
+  bat
+  lsd
+  nushell
+  pass
+  sshfs
+  tmux
+  zoxide
+)
+
+snap_classic_list=(
+  nushell
+  nvim	
+)
+
+for p in "${packages[@]}"; do
+  package_list+="$p "
+done
+
+echo \> apt -y install $package_list
+pass adg | sudo apt -y install $package_list
+echo
+echo \> snap install $snap_classic_list --classic
+pass adg | sudo snap install $snap_classic_list --classic

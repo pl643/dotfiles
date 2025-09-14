@@ -1,0 +1,2 @@
+v ~/.tmux.conf
+tmux source ~/.tmux.conf

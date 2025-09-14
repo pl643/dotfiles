@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -f $1 ]; then
+  bat $1
+  exit
+fi
+
+if which $1; then
+  bat $(which $1)
+fi

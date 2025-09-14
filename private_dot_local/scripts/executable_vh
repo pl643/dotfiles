@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo \> v ~/.config/hypr/hyprland.conf
+v ~/.config/hypr/hyprland.conf

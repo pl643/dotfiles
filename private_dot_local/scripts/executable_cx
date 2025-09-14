@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -f "$1" ]; then
+  echo \> chmod +x $1
+  chmod +x "$1"
+else
+  echo \> chmod +x ~/.local/scripts/\*
+  chmod +x ~/.local/scripts/*
+fi

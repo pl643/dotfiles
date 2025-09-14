@@ -1,0 +1,4 @@
+#!/bin/bash
+
+v ~/.local/scripts/$1
+chmod +x ~/.local/scripts/$1

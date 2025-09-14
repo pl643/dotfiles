@@ -1,0 +1,8 @@
+#!/bin/bash
+
+location=~/.local/share/chezmoi
+echo \> cd $location
+cd $location
+
+echo \> git pull https://pl643:\$\(pass github-token\)@github.com/pl643/dotfiles.git --all
+git pull https://pl643:$(pass github-token)@github.com/pl643/dotfiles.git
