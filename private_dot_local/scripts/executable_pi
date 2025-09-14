@@ -8,6 +8,7 @@ packages=(
   pass
   sshfs
   tmux
+  watchman
   zoxide
 )
 

@@ -1,1 +1,2 @@
-pass adg | sudo apt install $@
+echo \> pass adg \| sudo apt -y install $@
+pass adg | sudo apt -y install $@
