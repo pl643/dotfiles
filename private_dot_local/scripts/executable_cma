@@ -4,6 +4,8 @@ set -x
 
 chezmoi add ~/.config/zshrc
 chezmoi add ~/.local/scripts
+chezmoi add ~/.pass-store
+chezmoi add ~/.gnugp
 
 cd ~/.local/share/chezmoi
 git diff
