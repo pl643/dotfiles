@@ -9,12 +9,13 @@ packages=(
   sshfs
   tmux
   watchman
+  zsh
   zoxide
 )
 
 snap_classic_list=(
   nushell
-  nvim	
+  nvim
 )
 
 for p in "${packages[@]}"; do
