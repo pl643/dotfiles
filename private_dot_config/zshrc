@@ -44,8 +44,9 @@ vz() {
 
 # Evaluations ############################################################
 
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
+shell="$(basename $SHELL)"
+eval "$(zoxide init $shell)"
+eval "$(starship init $shell)"
 
 # Settings ###############################################################
 
