@@ -67,3 +67,6 @@ alias h='cd ~'
 alias ws='cd ~/workspace'
 alias u='cd ..'
 
+if [ -z $TMUX ]; then
+  tmux attach 2> /dev/null || tmux new
+fi
